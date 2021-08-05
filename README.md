@@ -7,11 +7,13 @@
 
 **Описание**
 
-* Интерактивная страница, куда можно добавлять фотографии, удалять их и ставить лайки. Страница размещена по ссылке: https://alexandernartsev.github.io/mesto-project/index.html
+* Интерактивная страница, куда можно добавлять фотографии, удалять их и ставить лайки. Страница размещена по ссылке: https://alexandernartsev.github.io/mesto/
 
 **Макет**
 
-* Проект реализован в соответствии с [макетом Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+* Проект реализован в соответствии с макетами Figma:
+    * [Макет основной вёрстки](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+    * [Макет модальных окон](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1)
 
 **Информация**
 
@@ -27,3 +29,12 @@
     * Inter-Black
 * Все изображения загружены из [макета Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1) и оптимизированы при помощи сервиса https://tinypng.com/.
 * Для оптимизации верстки используется файл [normalize.css](https://necolas.github.io/normalize.css/)
+
+**Функционал**
+* Страница предусматривает следующие возможности:
+    * Изменение имени и рода занятий
+    * Добавление карточки с контентом
+    * Удаление карочки с контентом
+    * Просмотр изображений в увеличенном размере
+    * Установка лайков карточкам
+* При открытии страницы, автоматически добавляются карточки с контентом
