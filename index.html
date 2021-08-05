@@ -22,6 +22,28 @@
         </form>
     </div>
 
+    <div class="form-container">
+        <form action="#" class="form add-form" name="add-form">
+            <h2 class="form__header">Новое место</h2>
+            <input type="text" name="name" class="form__item" placeholder="Название">
+            <input type="text" name="url" class="form__item" placeholder="Ссылка на картинку">
+            <button type="submit" class="button button_type_save" value="Создать">Создать</button>
+            <button type="button" class="button button_type_close">
+                <img src="./images/Close.svg" alt="Кнопка Закрыть" class="button__icon button__icon_el_close">
+            </button>
+        </form>
+    </div>
+
+    <div class="form-container form-container_dark">
+        <div class="image-popup">
+            <button type="button" class="button button_type_close">
+                <img src="./images/Close.svg" alt="Кнопка Закрыть" class="button__icon button__icon_el_close">
+            </button>
+            <img src="" alt="" class="image-popup__image">
+            <h3 class="image-popup__name"></h3>
+        </div>
+    </div>
+
     <header class="header page__block">
         <img src="./images/logo-mesto.svg" alt="Логотип проекта" class="header__logo">
     </header>
@@ -32,16 +54,12 @@
             <div class="profile__content">
                 <img src="./images/avatar.png" alt="Аватар" class="profile__avatar">
                 <div class="profile__info">
-                    <h1 class="profile__name">
-                        Жак-Ив Кусто
-                    </h1>
+                    <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <button type="button" class="button button_type_edit">
                         <img src="./images/edit.svg" alt="Кнопка Редактировать"
                             class="button__icon button__icon_el_edit">
                     </button>
-                    <p class="profile__text">
-                        Исследователь океана
-                    </p>
+                    <p class="profile__text">Исследователь океана</p>
                 </div>
             </div>
             <button type="button" class="button button_type_add">
@@ -50,48 +68,7 @@
         </section>
 
         <section class="elements body__block">
-            <div class="element">
-                <img src="./images/karachayevsk.png" alt="Фото Карачаевск" class="element__image">
-                <div class="element__group">
-                    <p class="element__label">Карачаевск</p>
-                    <button type="button" class="button element__like element__like_on"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img src="./images/elbrus.png" alt="Фото Эльбрус" class="element__image">
-                <div class="element__group">
-                    <p class="element__label">Гора Эльбрус</p>
-                    <button type="button" class="button element__like"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img src="./images/dombay.png" alt="Фото Домбай" class="element__image">
-                <div class="element__group">
-                    <p class="element__label">Домбай</p>
-                    <button type="button" class="button element__like"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img src="./images/elbrus.png" alt="Фото Эльбрус повторно" class="element__image">
-                <div class="element__group">
-                    <p class="element__label">Гора Эльбрус</p>
-                    <button type="button" class="button element__like"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img src="./images/dombay.png" alt="Фото домбай повтоно" class="element__image">
-                <div class="element__group">
-                    <p class="element__label">Домбай</p>
-                    <button type="button" class="button element__like"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img src="./images/karachayevsk.png" alt="Фото Карачаево-Черкесия" class="element__image">
-                <div class="element__group">
-                    <p class="element__label">Карачаево-Черкесия</p>
-                    <button type="button" class="button element__like"></button>
-                </div>
-            </div>
+
         </section>
 
     </main>
@@ -99,6 +76,19 @@
     <footer class="footer page__block">
         <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
     </footer>
+
+    <template id="element-template">
+        <div class="element">
+            <button type="button" class="button element__delete"></button>
+            <img src="" alt="Фото Карачаевск" class="element__image">
+            <div class="element__group">
+                <p class="element__label"></p>
+                <button type="button" class="button element__like"></button>
+            </div>
+        </div>
+    </template>
+
+    <script src="./script.js"></script>
 
 </body>
 
