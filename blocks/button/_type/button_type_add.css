@@ -1,0 +1,27 @@
+.button_type_add {
+
+    max-width: 150px;
+    width: 100%;
+    min-height: 50px;
+    height: 100%;
+
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 2px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #000000;
+}
+
+@media screen and (max-width: 679px) {
+    
+    .button_type_add {
+
+        max-width: 282px;
+
+    }
+
+} 
