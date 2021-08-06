@@ -14,10 +14,6 @@ const buttonClosePopUpProfile = popUpProfile.querySelector('.button_type_close')
 const buttonClosePopUpNewPlace = popUpNewPlace.querySelector('.button_type_close');
 const buttonClosePopUpImage = popUpImage.querySelector('.button_type_close');
 
-// Кнопки сохранения данных с форм
-const buttonSaveProfileData = page.querySelector('.button_type_save');
-const buttonSaveNewPlace = popUpNewPlace.querySelector('.button_type_save');
-
 // Контейнеры форм
 const popUpProfileContainer = popUpProfile.closest('.form-container');
 const popUpNewPlaceContainer = popUpNewPlace.closest('.form-container');
@@ -35,42 +31,14 @@ let profileActivityType = page.querySelector('.profile__text');
 let profileNameInput = popUpProfile.querySelector('.form__item[name=name]');
 let profileActivityTypeInput = popUpProfile.querySelector('.form__item[name=activity-type]');
 
-// Массив для автоматического создания карточек
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
-
 // Открыть PopUp
 function openPopUp(popUp) {
     popUp.classList.add('form-container_opened');
 }
 
 // Закрыть PopUp
-function closePopUp(event) {
-    event.target.closest('.form-container').classList.remove('form-container_opened');
+function closePopUp(popUp) {
+    popUp.classList.remove('form-container_opened');
 }
 
 // Открыть модальное окно "Редактировать профиль"
@@ -80,9 +48,6 @@ function openPopUpProfile() {
     // Присвоить текущие значения профиля полям формы
     profileNameInput.value = profileName.textContent;
     profileActivityTypeInput.value = profileActivityType.textContent;
-
-    // Присвоить слушатель кнопке закрытия
-    buttonClosePopUpProfile.addEventListener('click', closePopUp);
 }
 
 // Сохранение данных профиля
@@ -95,15 +60,12 @@ function submitFormProfile(event) {
     profileActivityType.textContent = profileActivityTypeInput.value;
 
     // Закрыть модальное окно
-    popUpProfileContainer.classList.toggle('form-container_opened')
+    closePopUp(popUpProfileContainer);
 };
 
-// Открыть модальное окно "Добавитьь место"
-function addPlace() {
-    openPopUp(popUpNewPlaceContainer)
-
-    // Слушатель на кнопку закрытия
-    buttonClosePopUpNewPlace.addEventListener('click', closePopUp);
+// Открыть модальное окно "Добавить место"
+function openPopupAddPlace() {
+    openPopUp(popUpNewPlaceContainer);
 }
 
 // Открыть модальное окно с изображением
@@ -155,9 +117,6 @@ function createCard(cardData) {
 
     placeImage.addEventListener('click', openImage);
 
-    // Слушатель на кнопку закрытия
-    buttonClosePopUpImage.addEventListener('click', closePopUp);
-
     // Вернуть сформированную карточку
     return card;
 }
@@ -180,7 +139,7 @@ function createCardHandle(event) {
 
     addCard({ name, link }, cardsArea);
 
-    closePopUp(event);
+    closePopUp(popUpNewPlaceContainer);
 
     popUpNewPlace.reset();
 }
@@ -193,6 +152,9 @@ initialCards.forEach(function (cardData) {
 
 // Установка слушателей на элементы
 buttonOpenPopUpProfile.addEventListener('click', openPopUpProfile);
-buttonOpenPopUpNewPlace.addEventListener('click', addPlace);
-buttonSaveProfileData.addEventListener('submit', submitFormProfile);
-buttonSaveNewPlace.addEventListener('submit', createCardHandle);
+buttonOpenPopUpNewPlace.addEventListener('click', openPopupAddPlace);
+popUpProfile.addEventListener('submit', submitFormProfile);
+popUpNewPlace.addEventListener('submit', createCardHandle);
+buttonClosePopUpProfile.addEventListener('click', () => closePopUp(popUpProfileContainer));
+buttonClosePopUpNewPlace.addEventListener('click', () => closePopUp(popUpNewPlaceContainer));
+buttonClosePopUpImage.addEventListener('click', () => closePopUp(popUpImageContainer));
