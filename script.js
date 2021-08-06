@@ -194,5 +194,5 @@ initialCards.forEach(function (cardData) {
 // Установка слушателей на элементы
 buttonOpenPopUpProfile.addEventListener('click', openPopUpProfile);
 buttonOpenPopUpNewPlace.addEventListener('click', addPlace);
-buttonSaveProfileData.addEventListener('click', submitFormProfile);
-buttonSaveNewPlace.addEventListener('click', createCardHandle);
+buttonSaveProfileData.addEventListener('submit', submitFormProfile);
+buttonSaveNewPlace.addEventListener('submit', createCardHandle);
