@@ -10,3 +10,9 @@
     transition-duration: .7s;
 
 }
+
+.button:disabled {
+
+    cursor: not-allowed;
+
+}
